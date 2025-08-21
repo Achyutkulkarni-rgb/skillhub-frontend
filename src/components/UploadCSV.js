@@ -15,7 +15,7 @@ function UploadCSV({ token }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/csv/upload",
+        "https://skillhub-backend-m6he.onrender.com/api/csv/upload",
         formData,
         {
           headers: {

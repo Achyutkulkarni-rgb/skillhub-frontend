@@ -20,7 +20,7 @@ function App() {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/me", {
+      const res = await fetch("https://skillhub-backend-m6he.onrender.com/api/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -33,7 +33,7 @@ function App() {
 
   const fetchAgents = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/agents", {
+      const res = await fetch("https://skillhub-backend-m6he.onrender.com/api/agents", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

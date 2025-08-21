@@ -9,9 +9,12 @@ function Dashboard({ token }) {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/agents", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://skillhub-backend-m6he.onrender.com/api/agents",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setAgents(res.data);
       } catch (err) {
         console.error(err);

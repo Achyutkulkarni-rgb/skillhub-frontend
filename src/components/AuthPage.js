@@ -16,16 +16,19 @@ function AuthPage({ setUser, setToken }) {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        name,
-        email,
-        password,
-      });
+      // ✅ Corrected register endpoint
+      const res = await axios.post(
+        "https://skillhub-backend-m6he.onrender.com/api/auth/register",
+        { name, email, password }
+      );
       setMessage(res.data.message);
       setError("");
-      
+
       // Auto-login after registration
-      const loginRes = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const loginRes = await axios.post(
+        "https://skillhub-backend-m6he.onrender.com/api/auth/login",
+        { email, password }
+      );
       setUser(loginRes.data.user);
       setToken(loginRes.data.token);
       localStorage.setItem("token", loginRes.data.token);
@@ -41,7 +44,11 @@ function AuthPage({ setUser, setToken }) {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      // ✅ Corrected login endpoint
+      const res = await axios.post(
+        "https://skillhub-backend-m6he.onrender.com/api/auth/login",
+        { email, password }
+      );
       setUser(res.data.user);
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
@@ -91,7 +98,11 @@ function AuthPage({ setUser, setToken }) {
         {isRegister ? "Already have an account?" : "Don't have an account?"}{" "}
         <span
           style={{ color: "blue", cursor: "pointer" }}
-          onClick={() => { setIsRegister(!isRegister); setMessage(""); setError(""); }}
+          onClick={() => {
+            setIsRegister(!isRegister);
+            setMessage("");
+            setError("");
+          }}
         >
           {isRegister ? "Login here" : "Register here"}
         </span>

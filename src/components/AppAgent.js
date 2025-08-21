@@ -13,7 +13,7 @@ function AddAgent({ token }) {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/agents/add",
+        "https://skillhub-backend-m6he.onrender.com/api/agents/add",
         { name, email, mobile, password },
         { headers: { Authorization: `Bearer ${token}` } }
       );

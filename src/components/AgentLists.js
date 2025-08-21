@@ -11,18 +11,24 @@ function AgentLists({ token }) {
     const fetchAgentsAndLists = async () => {
       try {
         // Fetch all agents
-        const agentsRes = await axios.get("http://localhost:5000/api/agents", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const agentsRes = await axios.get(
+          "https://skillhub-backend-m6he.onrender.com/api/agents",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         const agents = agentsRes.data;
 
         const tempLists = {};
 
         // Fetch distributed CSV items for each agent
         for (const agent of agents) {
-          const res = await axios.get(`http://localhost:5000/api/csv/agent/${agent._id}`, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+          const res = await axios.get(
+            `https://skillhub-backend-m6he.onrender.com/api/csv/agent/${agent._id}`,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
           tempLists[agent.name] = res.data; // store items by agent name
         }
 

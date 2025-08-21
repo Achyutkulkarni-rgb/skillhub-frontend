@@ -17,7 +17,7 @@ function Register({ setUser, setToken }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const res = await axios.post("https://skillhub-backend-m6he.onrender.com/api/auth/register", {
         name,
         email,
         password,
@@ -27,7 +27,7 @@ function Register({ setUser, setToken }) {
       setError("");
       
       // Optionally, log in the user automatically after registration
-      const loginRes = await axios.post("http://localhost:5000/api/auth/login", {
+      const loginRes = await axios.post("https://skillhub-backend-m6he.onrender.com/api/auth/login", {
         email,
         password,
       });
